@@ -1,0 +1,66 @@
+<br><br><br><br>  
+<div class="row m-3">
+  <div class="card">
+    <div class="card-header">
+      <h3>Resume Creater</h3>
+    </div>
+  </div>
+  <div class="card" *ngIf="!scr">
+    <div class="card-header">
+      <p>screen size is less than 1000px so it is not Working below 1000px screen size</p>
+    </div>
+  </div>
+</div>
+<div *ngIf="scr">
+  <div class="row m-1">
+    <app-basic [message]="send"></app-basic>
+    <app-edu [message]="send"></app-edu>
+    <app-skex [message]="send"></app-skex>
+    <app-project [message]="send" [msg]="dproject" (checkedout)="check($event)"></app-project>
+    <app-intern [message]="send" [msg]="internship" (checkedout)="check1($event)"></app-intern>
+    <app-course [message]="send" [msg]="coursework" (checkedout)="check2($event)"></app-course>
+    <app-por [message]="send" [msg]="por" (checkedout)="check3($event)"></app-por>
+    <app-award [message]="send" [msg]="awards" (checkedout)="check4($event)"></app-award>
+    <app-extra [message]="send" [msg]="extra" (checkedout)="check5($event)"></app-extra>
+  </div>
+  <div class="row m-3">
+    <div class="card">
+      <div class="card-header">
+        <h3>Preview</h3>
+        <button class="btn" (click)="Refresh()">Refresh</button>
+      </div>
+    </div>
+    
+    <div style="background: #fff; width:100%" id="printSectionId">
+      <app-basic [message]="unsend"></app-basic>
+      <app-edu [message]="unsend"></app-edu>
+      <app-skex [message]="unsend"></app-skex>
+      <div *ngIf="!dproject">
+        <app-project [message]="unsend"></app-project>
+      </div>
+      <div *ngIf="!internship">
+        <app-intern [message]="unsend"></app-intern>
+      </div>
+      <div *ngIf="!coursework">
+        <app-course [message]="unsend"></app-course>
+      </div>
+      <div *ngIf="!por">
+        <app-por [message]="unsend"></app-por>
+      </div>
+      <div *ngIf="!awards">
+        <app-award [message]="unsend"></app-award>
+      </div>
+      <div *ngIf="!extra">
+        <app-extra [message]="unsend"></app-extra>
+      </div>
+    </div><hr>
+    
+    <div class="text-center">
+      <button class="btn btn-primary" style="width: 200px; margin-left: 20px;" (click)="printToCart('printSectionId')">Download
+        PDF</button>
+    </div>
+    <div class="text-center" id="show" style="display: block;">
+      Choose: More Options->Paper size: legal after clicking this button
+    </div>
+  </div>
+</div>  

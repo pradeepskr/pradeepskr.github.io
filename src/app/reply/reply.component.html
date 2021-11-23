@@ -1,0 +1,81 @@
+<br><br><br><br>
+<div *ngIf="islogin">
+    <div class="text-center" *ngIf="isload">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+<div class="row row-cols-1 row-cols-md-6 g-4 m-1">
+    <div class="col m-1" *ngFor="let list of empList; let i = index">
+        <div type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showchat(list.id)">
+            <div class="card h-100">
+                <img src="{{list.photo}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{list.name}}</h5>
+                    <p class="card" style="font-size: 10px; color: black;">{{list.email}}</p>
+                </div>
+            </div>
+            <a *ngIf="i==empList.length-1">{{load()}}</a>
+            <a *ngIf="empList.length==0">{{load()}}</a>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header sss d-flex" *ngIf="islogin" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                <!--div *ngFor="let list of msgList; let i = index" style="width: 100%;" class="p-2">
+                    <div style="float: right; min-width: 80%; max-width: 95%;">
+                        <div *ngIf="list.id!=0"
+                            style="border-radius: 5px; background-color: blue; padding: 5px; color: white; float: right; min-width: 80% !important; max-width: 95%;">
+                            {{list.msg}}
+                        </div>
+                    </div>
+                </div-->
+                <ul class="nav flex-column" style="width: 100%;">
+                    <li class="nav-item" *ngFor="let list of msgList; let i = index" style="width: 100%;">
+                        <a class="nav-link" style="text-align: right;" *ngIf="list.var==0">
+                            <p
+                                style="background-color: blue; width: 70%; float: right; padding: 5px; border-radius: 5px; color: white;">
+                                {{list.msg}}</p>
+                        </a>
+                        <a class="nav-link" style="text-align: left;" *ngIf="list.var==1">
+                            <p
+                                style="background-color: #7393B3; width: 70%; float: left; padding: 5px; border-radius: 5px; color: white;">
+                                {{list.msg}}</p>
+                        </a>
+                        <a *ngIf="i==empList.length-1">{{load1()}}</a>
+                        <a *ngIf="empList.length==0">{{load1()}}</a>
+                    </li>
+                </ul>
+            </div>
+            <!--div *ngIf="!isload">
+                <div class="modal-header" *ngIf="islogin">
+                    <!--textarea style="width: 100%;   resize: none;" [(ngModel)]="msg"></textarea>
+                    <button style="cursor: pointer;" class="btn btn-primary m-2" >Send</button>
+                </div>
+            </div-->
+            <div *ngIf="!isload1">
+                <div class="modal-header" *ngIf="islogin">
+                    <textarea style="width: 100%;   resize: none;" [(ngModel)]="msg"></textarea>
+                    <button style="cursor: pointer;" class="btn btn-primary m-2" (click)="submit()">Send</button>
+                </div>
+            </div>
+            <div *ngIf="islogin">
+                <div class="text-center" *ngIf="isload1">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" *ngIf="!islogin">
+                Login for save the text
+            </div>
+        </div>
+    </div>
+</div>

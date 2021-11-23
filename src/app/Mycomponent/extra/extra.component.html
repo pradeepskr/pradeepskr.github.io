@@ -1,0 +1,102 @@
+<div class="card" *ngIf="message">
+    <div class="card-header">
+        <h3 class="text-center"><input style="width: 20px !important;height: 20px !important;" type="checkbox"
+                (click)="ckeckbox(msg)" id="flexCheckChecked" [checked]="!msg"> Extra Curricular Activities</h3>
+        <div class="container-fluid">
+            <div class="row">
+                <form (ngSubmit)="onsubmit()">
+                    <div class="row" *ngFor="let obj of dataextra; let i=index">
+                        <div class="row">
+                            <div class="dropdown m-1 col-2">
+                                <button class="br">Font: <input class="in1" *ngIf="obj.font;" value={{obj.font}}> <input
+                                        *ngIf="!obj.font;" class="in1" value="Lato"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                                    </svg>
+                                    <div class="dropdown-content">
+                                        <a (click)="changefont(i,'Poppins')">Font: Poppins</a>
+                                        <a (click)="changefont(i,'Lato')">Font: Lato</a>
+                                        <a (click)="changefont(i,'sans-serif')">Font: sans-serif</a>
+                                        <a (click)="changefont(i,'Monospace')">Font: Monospace </a>
+                                        <a (click)="changefont(i,'Cursive ')">Font: Cursive </a>
+                                        <a (click)="changefont(i,'Fantasy ')">Font: Fantasy </a>
+                                        <a (click)="changefont(i,'Dixon')">Font: Dixon</a>
+                                        <a (click)="changefont(i,'Electrik')">Font: Electrik</a>
+                                        <a (click)="changefont(i,'Lora')">Font: Lora</a>
+                                        <a (click)="changefont(i,'Endangered')">Font: Endangered</a>
+                                        <a (click)="changefont(i,'Euclid')">Font: Euclid</a>
+                                        <a (click)="changefont(i,'Fixedsys')">Font: Fixedsys</a>
+                                        <a (click)="changefont(i,'Franklin Gothic')">Font: Franklin Gothic</a>
+                                    </div>
+                                </button>
+                            </div>
+                            <div class="dropdown m-1 col-2">
+                                <button class="dropbtn">Font Size: <input class="in" *ngIf="obj.size;"
+                                        value={{obj.size}}> <input *ngIf="!obj.size;" class="in" value="16"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down" viewBox="0 0 16 16">
+                                        <path
+                                            d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                                    </svg></button>
+                                <div class="dropdown-content">
+                                    <a (click)="changesize(i,'6')">Font Size: 6</a>
+                                    <a (click)="changesize(i,'8')">Font Size: 8</a>
+                                    <a (click)="changesize(i,'10')">Font Size: 10</a>
+                                    <a (click)="changesize(i,'12')">Font Size: 12</a>
+                                    <a (click)="changesize(i,'14')">Font Size: 14</a>
+                                    <a (click)="changesize(i,'16')">Font Size: 16</a>
+                                    <a (click)="changesize(i,'18')">Font Size: 18</a>
+                                    <a (click)="changesize(i,'20')">Font Size: 20</a>
+                                    <a (click)="changesize(i,'22')">Font Size: 22</a>
+                                    <a (click)="changesize(i,'24')">Font Size: 24</a>
+                                    <a (click)="changesize(i,'26')">Font Size: 26</a>
+                                    <a (click)="changesize(i,'28')">Font Size: 28</a>
+                                    <a (click)="changesize(i,'30')">Font Size: 30</a>
+                                </div>
+                            </div>
+                            <div class="dropdown m-1 text-center col-1">
+                                <button class="btn-primary btn" (click)="delete(obj)">Delete
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body col-4" [ngStyle]="{'font-family': obj.font}">
+                            <input type="text txt" name="heading{{i}}" class="col" style="height: 40px;"
+                                [ngStyle]="{'font-size': obj.size +'px'}" [(ngModel)]="obj.heading" required>
+                        </div>
+                        <div class="card-body col-8 txt" [ngStyle]="{'font-family': obj.font}">
+                            <textarea class=" col" name="text{{i}}" [(ngModel)]="obj.text"
+                                [ngStyle]="{'font-size': obj.size +'px'}" required>{{obj.text}}</textarea>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="dropdown m-1 text-center">
+                        <button class="btn-primary btn" (click)="addform()">Add More
+                        </button>
+                    </div>
+                    <div class="dropdown m-1 text-center">
+                        <button type="submit" class="btn-primary btn text-center">Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!message">
+    <div class="container" style="margin-top: 10px;">
+        <div class="row border">
+            <div class="col text">
+                <h5>EXTRA CURRICULAR ACTIVITIES</h5>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngFor="let obj of dataextra">
+        <div class="row" [ngStyle]="{'font-family': obj.font}" *ngIf="obj.heading">
+            <div class="col" [ngStyle]="{'font-size': obj.size +'px'}">
+                <p><b>{{obj.heading}} </b>:{{obj.text}}</p>
+            </div>
+        </div>
+    </div>
+</div>

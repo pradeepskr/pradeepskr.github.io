@@ -1,0 +1,22 @@
+@media only screen and (min-width: 600px) {
+    .heading{
+        margin: 40px;
+        padding: 10px;
+        background-color: #323234;
+        color: white;
+        text-align: center;
+        width: 400px !important;
+        border-radius: 10px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .heading{
+        margin: 40px;
+        padding: 10px;
+        background-color: #323234;
+        color: white;
+        text-align: center;
+        width: 40%px !important;
+        border-radius: 10px;
+    }
+}

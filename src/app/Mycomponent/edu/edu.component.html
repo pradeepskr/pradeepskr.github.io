@@ -1,0 +1,224 @@
+<div class="card" *ngIf="message">
+    <div class="card-header">
+        <h3 class="text-center">Education</h3>
+        <div class="container-fluid">
+            <form (ngSubmit)="onsubmit1()">
+                <div class="row">
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="br">Font: <input *ngIf="nfont" class="in1" value="{{nfont}}">
+                            <input *ngIf="!nfont;" class="in1" value="Lato"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg>
+                            <div class="dropdown-content">
+                                <a (click)="changefont1('Poppins')">Font: Poppins</a>
+                                <a (click)="changefont1('Lato')">Font: Lato</a>
+                                <a (click)="changefont1('sans-serif')">Font: sans-serif</a>
+                                <a (click)="changefont1('Monospace')">Font: Monospace </a>
+                                <a (click)="changefont1('Cursive ')">Font: Cursive </a>
+                                <a (click)="changefont1('Fantasy ')">Font: Fantasy </a>
+                                <a (click)="changefont1('Dixon')">Font: Dixon</a>
+                                <a (click)="changefont1('Electrik')">Font: Electrik</a>
+                                <a (click)="changefont1('Lora')">Font: Lora</a>
+                                <a (click)="changefont1('Endangered')">Font: Endangered</a>
+                                <a (click)="changefont1('Euclid')">Font: Euclid</a>
+                                <a (click)="changefont1('Fixedsys')">Font: Fixedsys</a>
+                                <a (click)="changefont1('Franklin Gothic')">Font: Franklin Gothic</a>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="dropbtn">Font Size: <input class="in" *ngIf="nsize;"
+                                value={{nsize}}>
+                            <input *ngIf="!nsize;" class="in" value="16"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg></button>
+                        <div class="dropdown-content">
+                            <a (click)="changesize1('6')">Font Size: 6</a>
+                            <a (click)="changesize1('8')">Font Size: 8</a>
+                            <a (click)="changesize1('10')">Font Size: 10</a>
+                            <a (click)="changesize1('12')">Font Size: 12</a>
+                            <a (click)="changesize1('14')">Font Size: 14</a>
+                            <a (click)="changesize1('16')">Font Size: 16</a>
+                            <a (click)="changesize1('18')">Font Size: 18</a>
+                            <a (click)="changesize1('20')">Font Size: 20</a>
+                            <a (click)="changesize1('22')">Font Size: 22</a>
+                            <a (click)="changesize1('24')">Font Size: 24</a>
+                            <a (click)="changesize1('26')">Font Size: 26</a>
+                            <a (click)="changesize1('28')">Font Size: 28</a>
+                            <a (click)="changesize1('30')">Font Size: 30</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <h5></h5>
+                    </div>
+                    <div class="card-body col-2 text-center">
+                        <b>YEAR</b>
+                    </div>
+                    <div class="card-body col-2 text-center"><b>Exam</b>
+                    </div>
+                    <div class="card-body col-4 text-center">
+                        <b>Institute</b>
+                    </div>
+                    <div class="card-body col-2 text-center">
+                        <b >CGPA/MARKS(with out of) </b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body col-2">
+                        <h5 >Graduation</h5>
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': nsize +'px'}"
+                            name="year" [(ngModel)]="year">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="degree"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="degree">
+                    </div>
+                    <div class="card-body col-4" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="insti"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="insti">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="marks"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="marks">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body col-2">
+                        <h5 >12TH</h5>
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': nsize +'px'}"
+                            name="year1" [(ngModel)]="year1">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="degree1"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="degree1">
+                    </div>
+                    <div class="card-body col-4" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="insti1"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="insti1">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="marks1"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="marks1">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body col-2">
+                        <h5>10TH</h5>
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': nsize +'px'}"
+                            name="year2" [(ngModel)]="year2">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="degree2"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="degree2">
+                    </div>
+                    <div class="card-body col-4" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="insti2"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="insti2">
+                    </div>
+                    <div class="card-body col-2" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="marks2"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="marks2">
+                    </div>
+                </div>
+                <div class="dropdown m-1 text-center">
+                    <button type="submit" class="btn-primary btn text-center">Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="!message">
+    <div class="container" style="margin-top: 10px;">
+        <div class="row border">
+            <div class="col text">
+                <h5> EDUCATION</h5>
+            </div>
+        </div>
+    </div>
+    <div [ngStyle]="{'font-size': nsize +'px'}">
+        <div class="container" [ngStyle]="{'font-family': nfont}">
+            <div class="row">
+                <div class="col-2">
+                    <b>
+                        <p>YEAR</p>
+                    </b>
+                </div>
+                <div class="col-2">
+                    <b>
+                        <p>Degree/Exam</p>
+                    </b>
+                </div>
+
+                <div class="col">
+                    <b>
+                        <p>Institute</p>
+                    </b>
+                </div>
+                <div class="col-2">
+                    <b>
+                        <p>CGPA/MARKS</p>
+                    </b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <p>{{year}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{degree}}</p>
+                </div>
+
+                <div class="col">
+                    <p>{{insti}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{marks}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <p>{{year1}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{degree1}}</p>
+                </div>
+
+                <div class="col">
+                    <p>{{insti1}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{marks1}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <p>{{year2}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{degree2}}</p>
+                </div>
+
+                <div class="col">
+                    <p>{{insti2}}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{marks2}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

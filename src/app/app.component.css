@@ -1,0 +1,18 @@
+.d-flex a{
+    margin-right: 20px;
+}
+li{
+    margin-top: 5px;
+}
+li a:link{
+    text-decoration: none;
+    color: white;
+}
+li a:visited{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    text-decoration: none;
+    color: #ccc;
+}

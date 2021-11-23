@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sikaredu-7": {
+      "hosting": {
+        "cv-iit-kgp": [
+          "sikaredu-7"
+        ]
+      }
+    }
+  }
+}

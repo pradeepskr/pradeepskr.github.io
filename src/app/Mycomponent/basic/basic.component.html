@@ -1,0 +1,168 @@
+<div class="card" *ngIf="message">
+    <div class="card-header">
+        <h3 class="text-center">Basic Details </h3>
+        <div class="container-fluid">
+            <form (ngSubmit)="onsubmit1()">
+                <div class="row">
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="br">Font: <input *ngIf="nfont" class="in1" value="{{nfont}}">
+                            <input *ngIf="!nfont;" class="in1" value="Lato"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg>
+                            <div class="dropdown-content">
+                                <a (click)="changefont1('Poppins')">Font: Poppins</a>
+                                <a (click)="changefont1('Lato')">Font: Lato</a>
+                                <a (click)="changefont1('sans-serif')">Font: sans-serif</a>
+                                <a (click)="changefont1('Monospace')">Font: Monospace </a>
+                                <a (click)="changefont1('Cursive ')">Font: Cursive </a>
+                                <a (click)="changefont1('Fantasy ')">Font: Fantasy </a>
+                                <a (click)="changefont1('Dixon')">Font: Dixon</a>
+                                <a (click)="changefont1('Electrik')">Font: Electrik</a>
+                                <a (click)="changefont1('Lora')">Font: Lora</a>
+                                <a (click)="changefont1('Endangered')">Font: Endangered</a>
+                                <a (click)="changefont1('Euclid')">Font: Euclid</a>
+                                <a (click)="changefont1('Fixedsys')">Font: Fixedsys</a>
+                                <a (click)="changefont1('Franklin Gothic')">Font: Franklin Gothic</a>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="dropbtn">Font Size: <input class="in" *ngIf="nsize;"
+                                value={{nsize}}>
+                            <input *ngIf="!nsize;" class="in" value="16"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg></button>
+                        <div class="dropdown-content">
+                            <a (click)="changesize1('6')">Font Size: 6</a>
+                            <a (click)="changesize1('8')">Font Size: 8</a>
+                            <a (click)="changesize1('10')">Font Size: 10</a>
+                            <a (click)="changesize1('12')">Font Size: 12</a>
+                            <a (click)="changesize1('14')">Font Size: 14</a>
+                            <a (click)="changesize1('16')">Font Size: 16</a>
+                            <a (click)="changesize1('18')">Font Size: 18</a>
+                            <a (click)="changesize1('20')">Font Size: 20</a>
+                            <a (click)="changesize1('22')">Font Size: 22</a>
+                            <a (click)="changesize1('24')">Font Size: 24</a>
+                            <a (click)="changesize1('26')">Font Size: 26</a>
+                            <a (click)="changesize1('28')">Font Size: 28</a>
+                            <a (click)="changesize1('30')">Font Size: 30</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body col-4" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': nsize +'px'}"
+                            name="name" [(ngModel)]="name" placeholder="Enter Name">
+                    </div>
+                    <div class="card-body col-4" [ngStyle]="{'font-family': nfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="roll"
+                            [ngStyle]="{'font-size': nsize +'px'}" [(ngModel)]="roll" placeholder="Enter Roll No.">
+                    </div>
+                </div>
+            </form>
+            <form (ngSubmit)="onsubmit1()">
+                <div class="row">
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="br">Font: <input *ngIf="pfont" class="in1" value="{{pfont}}">
+                            <input *ngIf="!pfont;" class="in1" value="Lato"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg>
+                            <div class="dropdown-content">
+                                <a (click)="changefont2('Poppins')">Font: Poppins</a>
+                                <a (click)="changefont2('Lato')">Font: Lato</a>
+                                <a (click)="changefont2('sans-serif')">Font: sans-serif</a>
+                                <a (click)="changefont2('Monospace')">Font: Monospace </a>
+                                <a (click)="changefont2('Cursive ')">Font: Cursive </a>
+                                <a (click)="changefont2('Fantasy ')">Font: Fantasy </a>
+                                <a (click)="changefont2('Dixon')">Font: Dixon</a>
+                                <a (click)="changefont2('Electrik')">Font: Electrik</a>
+                                <a (click)="changefont2('Lora')">Font: Lora</a>
+                                <a (click)="changefont2('Endangered')">Font: Endangered</a>
+                                <a (click)="changefont2('Euclid')">Font: Euclid</a>
+                                <a (click)="changefont2('Fixedsys')">Font: Fixedsys</a>
+                                <a (click)="changefont2('Franklin Gothic')">Font: Franklin Gothic</a>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="dropdown m-1 col-2">
+                        <button type="button" class="dropbtn">Font Size: <input class="in" *ngIf="psize;"
+                                value={{psize}}>
+                            <input *ngIf="!psize;" class="in" value="16"> <svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+                            </svg></button>
+                        <div class="dropdown-content">
+                            <a (click)="changesize2('6')">Font Size: 6</a>
+                            <a (click)="changesize2('8')">Font Size: 8</a>
+                            <a (click)="changesize2('10')">Font Size: 10</a>
+                            <a (click)="changesize2('12')">Font Size: 12</a>
+                            <a (click)="changesize2('14')">Font Size: 14</a>
+                            <a (click)="changesize2('16')">Font Size: 16</a>
+                            <a (click)="changesize2('18')">Font Size: 18</a>
+                            <a (click)="changesize2('20')">Font Size: 20</a>
+                            <a (click)="changesize2('22')">Font Size: 22</a>
+                            <a (click)="changesize2('24')">Font Size: 24</a>
+                            <a (click)="changesize2('26')">Font Size: 26</a>
+                            <a (click)="changesize2('28')">Font Size: 28</a>
+                            <a (click)="changesize2('30')">Font Size: 30</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card-body col-5" [ngStyle]="{'font-family': pfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': psize +'px'}"
+                            name="phone" [(ngModel)]="phone" placeholder="Enter Phone No.">
+                    </div>
+                    <div class="card-body col-5" [ngStyle]="{'font-family': pfont}">
+                        <input type="text txt" class="col" style="height: 40px;" [ngStyle]="{'font-size': psize +'px'}"
+                            name="dep" [(ngModel)]="dep" placeholder="Enter Department">
+                    </div>
+                    <div class="card-body col-5" [ngStyle]="{'font-family': pfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="email"
+                            [ngStyle]="{'font-size': psize +'px'}" [(ngModel)]="email" placeholder="Enter Email Id">
+                    </div>
+
+                    <div class="card-body col-5" [ngStyle]="{'font-family': pfont}">
+                        <input type="text txt" class="col" style="height: 40px;" name="link"
+                            [ngStyle]="{'font-size': psize +'px'}" [(ngModel)]="link" placeholder="Enter one http link">
+                    </div>
+                </div>
+                <div class="dropdown m-1 text-center">
+                    <button type="submit" class="btn-primary btn text-center">Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="!message">
+    <div style="background: #fff; width:100%">
+        <div class="row">
+            <div class="col text text-center">
+                <span [ngStyle]="{'font-family': nfont}">
+                    <h5 [ngStyle]="{'font-size': nsize +'px'}"> {{name}} | {{roll}}</h5>
+                </span>
+                <span [ngStyle]="{'font-family': nfont}">
+                    <p [ngStyle]="{'font-size': nsize +'px'}">{{dep}}</p>
+                </span>
+                <span [ngStyle]="{'font-family': pfont}">
+                    <p [ngStyle]="{'font-size': psize +'px'}">Email: <a href="mailto:{{email}}"
+                            target="blank">{{email}}</a>
+                        | Phone No.
+                        <a href="tel:{{phone}}"> {{phone}}</a>
+                    </p>
+                </span>
+                <span [ngStyle]="{'font-family': pfont}">
+                    <p [ngStyle]="{'font-size': psize +'px'}"><a target="_blank" href="{{link}}">{{link}}</a></p>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

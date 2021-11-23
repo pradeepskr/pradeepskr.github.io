@@ -71,13 +71,14 @@ import { ReplyComponent } from './reply/reply.component';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '643877259176-p0spqj9vn6m1gbc660an51hpq4s5ihn9.apps.googleusercontent.com'
-              //'643877259176-ki69287lf4l82a23idrd27au5mki1fhg.apps.googleusercontent.com'
+              //'643877259176-p0spqj9vn6m1gbc660an51hpq4s5ihn9.apps.googleusercontent.com'
+              '643877259176-ki69287lf4l82a23idrd27au5mki1fhg.apps.googleusercontent.com'
             )
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('3188504531379962')
+            //provider: new FacebookLoginProvider('3188504531379962')
+            provider: new FacebookLoginProvider('319334346589027')
           }
         ]
       } as SocialAuthServiceConfig

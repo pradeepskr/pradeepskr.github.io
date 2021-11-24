@@ -13,8 +13,9 @@ export class PrsComponent implements OnInit {
   islogin: boolean = false;
   msg: string = "";
   isload: boolean = true;
-  empList: Array<{ msg: string, id: number, var: number , name:string}> = [];
+  empList: Array<{ msg: string, id: number, var: number, name: string }> = [];
   myScrollContainer: any;
+  length: number = 0;
   constructor(
     private router: Router,
     private authService: SocialAuthService,
@@ -39,6 +40,12 @@ export class PrsComponent implements OnInit {
   }
   showchat() {
     if (this.islogin) {
+      let len = 0;
+      this.db.database.ref().child('msg').child(this.userDetails.id).on("value", function (snapshot) {
+        len = snapshot.numChildren();
+      })
+      this.length = len;
+      this.startTimer();
       const ref = this.db.database.ref().child('msg').child(this.userDetails.id);
       this.empList = [];
       ref.once('value', (snapshot) => {
@@ -46,21 +53,33 @@ export class PrsComponent implements OnInit {
           var msg = childSnapshot.val()['msg'];
           var id = childSnapshot.val()['id'];
           var va = childSnapshot.val()['var'];
-          var nam=childSnapshot.val()['name'];
-          this.empList.push({ msg: msg, id: id, var: va , name: nam});
+          var nam = childSnapshot.val()['name'];
+          this.empList.push({ msg: msg, id: id, var: va, name: nam });
           msg = "";
           id = '';
           va = "";
-          nam='';
+          nam = '';
         });
       });
+
     }
-    this.startTimer();
+  }
+  showchat1() {
+    let len = 0;
+    if (this.islogin) {
+      this.db.database.ref().child('msg').child(this.userDetails.id).on("value", function (snapshot) {
+        len = snapshot.numChildren();
+      })
+    }
+    if (len > this.length) {
+      console.log(len);
+      this.showchat()
+    }
   }
   startTimer() {
-    let intervalId = setInterval(() => {
-      this.showchat();
-    }, 10000)
+    setInterval(() => {
+      this.showchat1();
+    }, 5000)
   }
   signInHandle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((data) => {
@@ -72,7 +91,7 @@ export class PrsComponent implements OnInit {
     });
   }
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) =>{
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((data) => {
       this.islogin = true;
       this.userDetails = data;
       localStorage.setItem('google-sign', JSON.stringify(data));

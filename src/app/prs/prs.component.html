@@ -287,14 +287,15 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div class="modal-header" *ngIf="!islogin">
                     <button type="button" (click)="signInHandle()" class="btn btn-secondary">Login With Google</button>
                     <button type="button" (click)="signInWithFB()" class="btn btn-primary">Login With Facebook</button>
                 </div>
-                <div class="modal-header dropdown" *ngIf="islogin">
+                <div class="modal-header dropdown" *ngIf="islogin" style="padding: 0px !important; float: right;">
+                    <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        style="padding: 2px !important;" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
                         <img [src]='userDetails?.photoUrl' class="card-img-top"
                             style="width: 35px; border-radius: 30px;"> Welcome -
                         {{userDetails.name}}
@@ -326,13 +327,12 @@
                                     {{list.msg}}</p>
                             </a>
                             <a *ngIf="i==empList.length-1">{{load()}}</a>
-                            
+
                         </li>
                         <a *ngIf="empList.length==0">{{load()}}</a>
                     </ul>
                 </div>
                 <div *ngIf="!isload">
-                    <p style="font-size: 10px; margin-bottom: 0pc !important; padding-bottom: 0px !important;">Chat will automatically refresh in 10 seconds</p>
                     <div class="modal-header" *ngIf="islogin">
                         <textarea style="width: 100%;   resize: none;" [(ngModel)]="msg"></textarea>
                         <button style="cursor: pointer;" class="btn btn-primary m-2" (click)="submit()">Send</button>

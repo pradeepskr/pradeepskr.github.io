@@ -1,3 +1,4 @@
+import { makeBindingParser } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
@@ -18,7 +19,9 @@ export class ReplyComponent implements OnInit {
   isload1: boolean = true;
   myScrollContainer: any;
   msg: string = "";
-  idsss :number | any;
+  idsss: number | any;
+  length: number | any;
+  nm:string="";
   constructor(
     private router: Router,
     private authService: SocialAuthService,
@@ -43,7 +46,6 @@ export class ReplyComponent implements OnInit {
             var photo = childSnapshot.val()['photoUrl'];
             var email = childSnapshot.val()['email'];
             this.empList.push({ name: name, id: id, photo: photo, email: email });
-            console.log(this.empList);
           });
         });
       }
@@ -53,10 +55,18 @@ export class ReplyComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
-  showchat(ids: number) {
+  showchat(ids: number, nm:string) {
     if (this.islogin) {
       let idss = ids + "";
-      this.idsss=idss;
+      this.idsss = idss;
+      this.nm=nm;
+      let len=0;
+      let s=this.idsss+"";
+      this.db.database.ref().child('msg').child(s).on("value", function(snapshot) {
+        len = snapshot.numChildren();
+      })
+      this.length=len;
+      this.startTimer(this.idsss, nm);
       const ref = this.db.database.ref().child('msg').child(idss);
       this.msgList = [];
       ref.once('value', (snapshot) => {
@@ -72,13 +82,27 @@ export class ReplyComponent implements OnInit {
           nam = '';
         });
       });
+
     }
-    this.startTimer(ids);
   }
-  startTimer(id: number) {
-    let intervalId = setInterval(() => {
-      this.showchat(id);
-    }, 10000)
+  showchat1(ids: number, nm:string) {
+    let len =0;
+    if (this.islogin) {
+      let idss = ids + "";
+      this.idsss = idss;
+      this.db.database.ref().child('msg').child(idss).on("value", function(snapshot) {
+        len = snapshot.numChildren();
+      })
+    }
+    if(len>this.length){
+      console.log(len);
+      this.showchat(this.idsss, nm)
+    }
+  }
+  startTimer(id: number, nm:string) {
+    setInterval(() => {
+      this.showchat1(id, nm);
+    }, 5000)
   }
   load() {
     this.isload = false;
@@ -88,6 +112,7 @@ export class ReplyComponent implements OnInit {
     try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     } catch (err) { }
+
   }
   submit() {
     if (this.msg != "") {
@@ -110,5 +135,4 @@ export class ReplyComponent implements OnInit {
       alert("message is empty");
     }
   }
-
 }

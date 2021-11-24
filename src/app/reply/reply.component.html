@@ -1,4 +1,4 @@
-<br><br><br><br>
+<br><br><br><br><br>
 <div *ngIf="islogin">
     <div class="text-center" *ngIf="isload">
         <div class="spinner-border" role="status">
@@ -8,7 +8,8 @@
 </div>
 <div class="row row-cols-1 row-cols-md-6 g-4 m-1">
     <div class="col m-1" *ngFor="let list of empList; let i = index">
-        <div type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="showchat(list.id)">
+        <div type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            (click)="showchat(list.id, list.name)">
             <div class="card h-100">
                 <img src="{{list.photo}}" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -27,7 +28,10 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <button type="button" class="btn-close m-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <p class="btn" style="float: right; padding: 0px !important; margin: 0px !important;" data-bs-dismiss="modal"
+                aria-label="Close"> <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+                {{nm}}</p>
             <div class="modal-header sss d-flex" *ngIf="islogin" #scrollMe [scrollTop]="scrollMe.scrollHeight">
                 <!--div *ngFor="let list of msgList; let i = index" style="width: 100%;" class="p-2">
                     <div style="float: right; min-width: 80%; max-width: 95%;">
@@ -38,6 +42,7 @@
                     </div>
                 </div-->
                 <ul class="nav flex-column" style="width: 100%;">
+                    <br>
                     <li class="nav-item" *ngFor="let list of msgList; let i = index" style="width: 100%;">
                         <a class="nav-link" style="text-align: right;" *ngIf="list.var==0">
                             <p
@@ -50,8 +55,8 @@
                                 {{list.msg}}</p>
                         </a>
                         <a *ngIf="i==empList.length-1">{{load1()}}</a>
-                        <a *ngIf="empList.length==0">{{load1()}}</a>
                     </li>
+                    <a *ngIf="empList.length==0">{{load1()}}</a>
                 </ul>
             </div>
             <!--div *ngIf="!isload">
@@ -60,10 +65,10 @@
                     <button style="cursor: pointer;" class="btn btn-primary m-2" >Send</button>
                 </div>
             </div-->
-            <div *ngIf="!isload1">
-                <div class="modal-header" *ngIf="islogin">
-                    <textarea style="width: 100%;   resize: none;" [(ngModel)]="msg"></textarea>
-                    <button style="cursor: pointer;" class="btn btn-primary m-2" (click)="submit()">Send</button>
+            <div *ngIf="!isload1" style="margin: 0px !important; padding: 0px !important;">
+                <div class="modal-header" *ngIf="islogin"  style="margin: 2px !important; padding: 0px !important;">
+                    <textarea style="width: 100%;   resize: none; height: 40px;" [(ngModel)]="msg"></textarea>
+                    <button style="cursor: pointer; height: 40px; border-radius: 10px;" class="btn btn-primary m-1" (click)="submit()">Send</button>
                 </div>
             </div>
             <div *ngIf="islogin">

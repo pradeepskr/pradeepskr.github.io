@@ -107,12 +107,18 @@
                         <div class="timeline-date">2021</div>
                         <h2>Software Development Intern</h2>
                         <h4>Neoastra, Bangaluru, India</h4>
-                        <ul>
-                            <li>Image Processing</li>
-                            <li>Detection(Opencv, Dlib)</li>
-                            <li>Detection(Static Image, Video, Live Stream)</li>
-                            <li>Eye Classification(Close, Open)</li>
-                            <li>Tilted Face Classification(Left tilted, Right tilted, Front Face)</li>
+                        <ul style="font-size: small; font-style: normal;">
+                            <li>Processed <b>100+</b> images using OpenCV (CPP) in 2D array with 3 pixels range (BGR)
+                                and 1 pixels range (Gray)</li>
+                            <li>Detected face using <b>OpenCV (Haar Cascade, DNN)</b> and <b>(HoG and CNN)</b> in static
+                                image, video stream and live stream</li>
+                            <li>Recognised face from <b>500+</b> Images datasets (VGGFace2) using RMSE value of distance
+                                in <b>128 face points length</b> of images</li>
+                            <li>Classified opened & closed eyes and Front & Tilted (right, left) Faces using area of
+                                <b>shape predictor 68 face landmarks</b> in dlib
+                            </li>
+                            <li> Calculated blurred percentage on face & image using variance of laplacian model &
+                                cropped face by haar cascade in OpenCV</li>
                         </ul>
                     </div>
                 </div>
@@ -121,29 +127,51 @@
                         <div class="timeline-date">2021</div>
                         <h2>Full Stack Development</h2>
                         <h4>Bemrr, Ahemdabad, India</h4>
-                        <ul>
-                            <li>Podcast Audio Player (With all audio controls -> Play, Pause, Next, Previous, Time
-                                Slider)</li>
-                            <li>Authentication(Google api, Facebook Api)</li>
-                            <li>Comments and Like(for each Podcast)</li>
-                            <li>UI Design</li>
+                        <ul style="font-size: small; font-style: normal;">
+                            <li>Created audio player for playing podcasts in <b>Angular (Typescript)</b> with controls
+                                Play, Pause, Next, Previous and Time slider</li>
+                            <li>Added input fields for comment & like button for reaction onTracks with Authenticate
+                                user by <b>Google & Facebook</b> login api</li>
+                            <li>Designed UI of Player, list of Podcasts, list of comments & no. of likes by HTML, CSS,
+                                <b>Typescript</b> & used <b>Firebase </b> as backend
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="timeline-item left wow slideInLeft" data-wow-delay="0.1s">
                     <div class="timeline-text">
                         <div class="timeline-date">2020</div>
-                        <h2>Chat Application</h2>
-                        <h4>Self</h4>
+                        <h2>Directory Access of Window Computer | Qt Creator in C++</h2>
+                        <h4>With text editor, Self</h4>
                         <ul>
-                            <li>Authentication, Registration</li>
-                            <li>Chat Dashboard (No. of users)</li>
-                            <li>Private Chat(with Text , Image)</li>
-                            <li>UI Design</li>
+                            <li>Created a responsive UI with xml and connected components with cpp in the backend using
+                                gui and core application</li>
+                            <li>Added an individual folder with visited history, Digital clock and folder creator with
+                                pop up confirmation</li>
+                            <li>Built a text editor and which can create file and can edit existing text file</li>
                         </ul>
+                        <a style="background-color: orange; padding: 10px; border-radius: 5px; color: white;"
+                            href="https://github.com/pradeepkumar00/Access-Complete-Directory-of-Window-WIth-Text-Editor"
+                            target="_blanck">Get
+                            Code</a>
                     </div>
                 </div>
-                <div class="timeline-item right wow slideInRight" data-wow-delay="0.1s">
+                <div class="timeline-item right wow slideInLeft" data-wow-delay="0.1s">
+                    <div class="timeline-text">
+                        <div class="timeline-date">2020</div>
+                        <h2>Real Time Chat Application </h2><h4>Backend Development in PHP, JQUERY and AJAX </h4>
+                        <h4>Self</h4>
+                        <ul>
+                            <li>Developed chat applications with a list of users and chat area with input fields for text sharing along with image sharing</li>
+                            <li>Produced a user self registration & authentication process by two arguments and use see anyone offline/online status with number of unseen message</li>
+                        </ul>
+                        <a style="background-color: orange; padding: 10px; border-radius: 5px; color: white;"
+                            href="https://github.com/pradeepkumar00/Chat-application-using-jquery-and-php-with-image-sharing"
+                            target="_blanck">Get
+                            Code</a>
+                    </div>
+                </div>
+                <div class="timeline-item left wow slideInRight" data-wow-delay="0.1s">
                     <div class="timeline-text">
                         <div class="timeline-date">2020</div>
                         <h2>Graphic Design, Intern</h2>
@@ -329,7 +357,6 @@
                             <a *ngIf="i==empList.length-1">{{load()}}</a>
 
                         </li>
-                        <a *ngIf="empList.length==0">{{load()}}</a>
                     </ul>
                 </div>
                 <div *ngIf="!isload">

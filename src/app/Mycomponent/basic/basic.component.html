@@ -4,6 +4,41 @@
         <div class="container-fluid">
             <form (ngSubmit)="onsubmit1()">
                 <div class="row">
+                    <div class="card-body col-4">
+                        <input type="text txt" class="col" style="height: 40px;" 
+                            name="link_logo" placeholder="Enter link of logo" [(ngModel)]="llink">
+                    </div>
+                    <div class="card-body col-4">
+                        <input type="text txt" class="col" style="height: 40px;" 
+                            name="link_photo" placeholder="Enter link of photo" [(ngModel)]="plink">
+                    </div>
+                    <div class="card-body col-1">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="height: 40px; border-radius: 10px;" >
+                            How to get link</button>
+                    </div>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="staticBackdropLabel">How to get the link of Photo and logo</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <ul>
+                              <li>Upload photo(ratio of photo must be 1:1) on dropbox and copy link</li>
+                              <li>Got this link "https://www.dropbox.com/----.jpg?dl=0" and change "dl=0" to "dl=1</li>
+                              <li>https://www.dropbox.com/----.jpg?dl=1 and paste this link into input</li>
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <input *ngIf="!nsize;" class="in" value="16">
+                <div class="row">
                     <div class="dropdown m-1 col-2">
                         <button type="button" class="br">Font: <input *ngIf="nfont" class="in1" value="{{nfont}}">
                             <input *ngIf="!nfont;" class="in1" value="Lato"><svg xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +180,10 @@
 <div *ngIf="!message">
     <div style="background: #fff; width:100%">
         <div class="row">
-            <div class="col text text-center">
+            <div class="col-2">
+                <img src="{{llink}}" height="120px">
+            </div>
+            <div class="col-8 text text-center">
                 <span [ngStyle]="{'font-family': nfont}">
                     <h5 [ngStyle]="{'font-size': nsize +'px'}"> {{name}} | {{roll}}</h5>
                 </span>
@@ -162,6 +200,9 @@
                 <span [ngStyle]="{'font-family': pfont}">
                     <p [ngStyle]="{'font-size': psize +'px'}"><a target="_blank" href="{{link}}">{{link}}</a></p>
                 </span>
+            </div>
+            <div class="col-2">
+                <img src="{{plink}}" height="120px">
             </div>
         </div>
     </div>

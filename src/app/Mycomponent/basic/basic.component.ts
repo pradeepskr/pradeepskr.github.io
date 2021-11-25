@@ -18,6 +18,8 @@ export class BasicComponent implements OnInit {
   nfont: string | any;
   pfont: string | any;
   psize: string | any;
+  plink: string | any;
+  llink: string | any;
   constructor() {
     this.localItem = localStorage.getItem("dataarr");
     if (this.localItem != null) {
@@ -32,6 +34,8 @@ export class BasicComponent implements OnInit {
       this.psize = this.dataarr[7];
       this.nsize = this.dataarr[8];
       this.dep = this.dataarr[9];
+      this.plink = this.dataarr[10];
+      this.llink = this.dataarr[11];
     }
   }
 
@@ -73,6 +77,9 @@ export class BasicComponent implements OnInit {
       this.dataarr[7] = this.psize;
       this.dataarr[8] = this.nsize;
       this.dataarr[9] = this.dep;
+      this.dataarr[10]=this.plink;
+      this.dataarr[11]=this.llink;
+
       localStorage.setItem("dataarr", JSON.stringify(this.dataarr));
     }
   }

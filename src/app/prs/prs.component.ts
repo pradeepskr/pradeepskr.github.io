@@ -71,6 +71,9 @@ export class PrsComponent implements OnInit {
         len = snapshot.numChildren();
       })
     }
+    if (len < 1) {
+      this.isload = false;
+    }
     if (len > this.length) {
       console.log(len);
       this.showchat()

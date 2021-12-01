@@ -96,8 +96,9 @@
 <div *ngIf="!message">
     <div class="container" style="margin-top: 10px;">
         <div class="row border">
-            <div class="col text">
-                <h5> SKILLS AND EXPERTISE</h5>
+            <div class="col text" [ngStyle]="{'font-family': font}">
+                <h5 style="font-size: 15px; padding: 2px; font-weight: 700;" [ngStyle]="{'font-size': fsize +'px'}">
+                     SKILLS AND EXPERTISE</h5>
             </div>
         </div>
     </div>

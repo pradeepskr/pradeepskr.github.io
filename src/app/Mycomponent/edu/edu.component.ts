@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EduComponent implements OnInit {
   @Input() message:string | any;
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   localItem: string | any;
   dataedu: Array<{ s: string }> = [];
   degree: string | any;

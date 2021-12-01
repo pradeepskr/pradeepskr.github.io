@@ -8,6 +8,8 @@ import { por } from './por';
 export class PorComponent implements OnInit {
   @Input() message : string |any;
   @Input() msg : string | any;
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Output() checkedout : EventEmitter<string> = new EventEmitter();
   por: por = new por();
   datapor: any[] = [];

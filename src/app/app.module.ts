@@ -24,6 +24,7 @@ import { AngularFireModule } from '@angular/fire';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { ReplyComponent } from './reply/reply.component';
+import { VideoComponent } from './video/video.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { ReplyComponent } from './reply/reply.component';
     ExtraComponent,
     PrsComponent,
     ReplyComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,

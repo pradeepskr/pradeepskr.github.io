@@ -85,14 +85,14 @@
 <div *ngIf="!message">
     <div class="container" style="margin-top: 10px;">
         <div class="row border">
-            <div class="col text">
-                <h5>AWARDS AND ACHIEVEMENTS</h5>
+            <div class="col text" [ngStyle]="{'font-family': font}">
+                <h5 style="font-size: 15px; padding: 2px; font-weight: 700;" [ngStyle]="{'font-size': fsize +'px'}">AWARDS AND ACHIEVEMENTS</h5>
             </div>
         </div>
         <div class="row" *ngFor="let obj of dataaward">
-            <div class="col" [ngStyle]="{'font-size': obj.size +'px'}">
-                <p [ngStyle]="{'font-family': obj.font}">{{obj.text}}</p>
-            </div>
+            <ul class="col" [ngStyle]="{'font-size': obj.size +'px'}" style="margin: 0px 0px 0px 14px;">
+                <li [ngStyle]="{'font-family': obj.font}" *ngIf="obj.text">{{obj.text}}</li>
+            </ul>
         </div>
     </div>
 </div>

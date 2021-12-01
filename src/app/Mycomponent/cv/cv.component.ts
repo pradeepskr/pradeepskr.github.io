@@ -25,6 +25,8 @@ export class CvComponent implements OnInit {
   extra: string | any;
   popupWinindow: string | any;
   innerContents: string | any;
+  fsize: number = 20;
+  font: string = 'poppins';
   constructor() {
     this.localItem = localStorage.getItem("datadetails");
     if (this.localItem != null) {
@@ -56,6 +58,14 @@ export class CvComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let s = localStorage.getItem("heading_fsize");
+    if(s!=null){
+      this.fsize=JSON.parse(s);
+    }
+    let p = localStorage.getItem("heading_font");
+    if(p!=null){
+      this.font=JSON.parse(p);
+    }
   }
   printToCart(printSectionId: string) {
     this.innerContents = document.getElementById(printSectionId)?.innerHTML;
@@ -92,6 +102,15 @@ export class CvComponent implements OnInit {
   </html>`
     );
     this.popupWinindow.document.close();
+  }
+  changesize(i: number) {
+    this.fsize = i;
+    localStorage.setItem("heading_fsize", JSON.stringify(this.fsize))
+
+  }
+  changefont(j: string) {
+    this.font = j;
+    localStorage.setItem("heading_font", JSON.stringify(this.font))
   }
   check(s: string) {
     if (s != "") {

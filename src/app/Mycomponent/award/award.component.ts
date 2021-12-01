@@ -15,6 +15,8 @@ export class AwardComponent implements OnInit {
       this.dataaward = JSON.parse(this.localItem);
     }
   }
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Input() message : string |any;
   @Input() msg : string | any;
   @Output() checkedout : EventEmitter<string> = new EventEmitter();

@@ -181,14 +181,14 @@
     <div style="background: #fff; width:100%">
         <div class="row">
             <div class="col-2">
-                <img src="{{llink}}" height="120px">
+                <img style="margin: auto;" src="{{llink}}" height="100px">
             </div>
             <div class="col-8 text text-center">
                 <span [ngStyle]="{'font-family': nfont}">
                     <h5 [ngStyle]="{'font-size': nsize +'px'}"> {{name}} | {{roll}}</h5>
                 </span>
-                <span [ngStyle]="{'font-family': nfont}">
-                    <p [ngStyle]="{'font-size': nsize +'px'}">{{dep}}</p>
+                <span [ngStyle]="{'font-family': pfont}">
+                    <p [ngStyle]="{'font-size': psize +'px'}">{{dep}}</p>
                 </span>
                 <span [ngStyle]="{'font-family': pfont}">
                     <p [ngStyle]="{'font-size': psize +'px'}">Email: <a href="mailto:{{email}}"
@@ -202,7 +202,7 @@
                 </span>
             </div>
             <div class="col-2">
-                <img src="{{plink}}" height="120px">
+                <img src="{{plink}}" height="100px">
             </div>
         </div>
     </div>

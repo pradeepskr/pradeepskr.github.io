@@ -7,6 +7,8 @@ import { skex } from '../cv/text';
   styleUrls: ['./skex.component.css']
 })
 export class SkexComponent implements OnInit {
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Input() message : string | any;
   skex: skex = new skex();
   dataarray: any[] = [];

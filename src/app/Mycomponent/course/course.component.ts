@@ -9,6 +9,8 @@ export class CourseComponent implements OnInit {
   skex: skex = new skex();
   datacourse: any[] = [];
   localItem: string | any;
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Input() message : string |any;
   @Input() msg : string | any;
   @Output() checkedout : EventEmitter<string> = new EventEmitter();

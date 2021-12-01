@@ -7,6 +7,8 @@ import { project } from './project';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent implements OnInit {
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Input() message : string | any;
   @Input() msg : string | any;
   project: project = new project();

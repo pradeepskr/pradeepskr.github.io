@@ -16,6 +16,8 @@ export class ExtraComponent implements OnInit {
       this.dataextra = JSON.parse(this.localItem);
     }
   }
+  @Input() fsize: number | any;
+  @Input() font: string | any;
   @Input() message : string |any;
   @Input() msg : string | any;
   @Output() checkedout : EventEmitter<string> = new EventEmitter();

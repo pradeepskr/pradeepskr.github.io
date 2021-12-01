@@ -97,14 +97,15 @@
     </div>
 </div>
 <div *ngIf="!message">
-    <div class="container" style="margin-top: 10px;">
+    <div class="container" style="margin-top: 2px;">
         <div class="row border">
-            <div class="col text">
-                <h5>POSITIONS OF RESPONSIBILITY</h5>
+            <div class="col text" [ngStyle]="{'font-family': font}">
+                <h5 style="font-size: 15px; padding: 2px; font-weight: 700;" [ngStyle]="{'font-size': fsize +'px'}">
+                    POSITIONS OF RESPONSIBILITY</h5>
             </div>
         </div>
     </div>
-    <div class="container" *ngFor="let obj of datapor">
+    <div class="container" *ngFor="let obj of datapor" style="padding-left: 10px !important;">
         <div class="row" [ngStyle]="{'font-size': obj.size +'px'}">
             <div class="col" [ngStyle]="{'font-family': obj.font}">
                 <p><b>{{obj.heading}}</b></p>
@@ -112,10 +113,12 @@
         </div>
         <div class="row" [ngStyle]="{'font-size': obj.size +'px'}">
             <div class="col" [ngStyle]="{'font-family': obj.font}">
-                <p>{{obj.text1}}</p>
-                <p>{{obj.text2}}</p>
-                <p>{{obj.text3}}</p>
-                <p>{{obj.text4}}</p>
+                <ul style="margin-top: 0; margin-bottom: 0rem; padding-left: 15px !important;">
+                    <li *ngIf="obj.text1">{{obj.text1}}</li>
+                    <li *ngIf="obj.text2">{{obj.text2}}</li>
+                    <li *ngIf="obj.text3">{{obj.text3}}</li>
+                    <li *ngIf="obj.text4">{{obj.text4}}</li>
+                </ul>
             </div>
         </div>
     </div>
